@@ -1,6 +1,6 @@
 # Solución de Inteligencia de Negocios para una empresa de telecomunicaciones (Costa Rica)
 
-Proyecto académico de 4 semanas que integra un **modelo dimensional**, un **proceso ETL** y un **dashboard** para analizar facturación, consumo, incidencias y cancelaciones de clientes.
+Proyecto académico de 4 semanas que integra un modelo dimensional, un proceso de ETL y un dashboard para analizar facturación, consumo, incidencias y cancelaciones de clientes.
 
 ## 1. Problema y objetivo
 
@@ -37,7 +37,7 @@ Gerencia general, gerencia comercial y de ventas, operaciones y gestión de serv
 
 | Etapa | Herramienta |
 |---|---|
-| Generación de datos | Python + IA (datos sintéticos) |
+| Generación de datos | Generados por IA (datos sintéticos) |
 | ETL | KNIME Analytics Platform |
 | Almacenamiento | MySQL |
 | Visualización | Power BI Desktop |
