@@ -78,4 +78,41 @@ Gerencia general, gerencia comercial y de ventas, operaciones y gestión de serv
 - **Derivación:** llaves subrogadas, atributos de tiempo, estado y antigüedad del cliente (corte 30/06/2026), rangos de antigüedad, nivel de consumo por terciles dentro de cada plan y periodo, y medidas de la tabla de hechos.
 - **Carga:** primero las dimensiones, luego el hecho. Cada consumo se separa en hasta 3 filas (datos, minutos, SMS). Se validan duplicados, integridad de llaves y conteos contra el origen; los registros inválidos se separan para revisión.
 
+## 9. Resultados obtenidos
+
+| Tema | Resultado |
+|---|---|
+| **Facturación** | Total ≈ ₡202,19 millones. Planes top: Corporativo Conectividad (₡34,4 M), Corporativo Enterprise (₡31,8 M), Pyme Conectividad (₡31,7 M). Por servicio: Internet ≈ ₡115 M, Móvil ≈ ₡61 M, TV ≈ ₡26 M. Por segmento: Residencial ≈ ₡79 M, Corporativo ≈ ₡66 M, Pyme ≈ ₡57 M. |
+| **Consumo** | ≈ 220,88 mil GB, 1,94 millones de minutos y 248,28 mil SMS. Los planes corporativos y Pyme lideran el consumo de minutos y datos. Cada unidad se interpreta por separado. |
+| **Incidencias** | 410 casos, tiempo promedio de resolución de 19,72 h. Más frecuentes: cambio de plan (54), lentitud del servicio (50), equipo/router (48). Más lentas: fallas en llamadas/datos móviles (~24 h), equipo/router (~23 h), señal de TV (~22 h). |
+| **Cancelaciones** | Tasa mensual: ene 2,27 %, feb 3,20 %, mar 2,03 %, abr 1,23 % (mínimo), may 3,74 % (máximo), jun 2,58 %. Sin tendencia constante. |
+| **Consumo e ingresos** | Ingresos por nivel de consumo: Alto ≈ ₡83 M, Medio ≈ ₡78 M, Bajo ≈ ₡42 M (montos totales, no promedios por cliente). |
+
+**Hallazgos clave**
+- Los planes corporativos y Pyme generan los mayores ingresos, e Internet es el servicio que más factura.
+- La incidencia más frecuente (cambio de plan) no es la que más tarda en resolverse.
+- La cancelación fluctúa entre meses; el pico es mayo y el valle abril.
+- Los clientes de consumo alto y medio concentran la mayor parte de lo facturado.
+
+## 10. Conclusiones
+
+- El proyecto permitió aplicar el ciclo completo de una solución de BI y distinguir el rol de cada herramienta (KNIME para transformar, Power BI para analizar).
+- El desarrollo iterativo permitió corregir errores conceptuales de forma temprana, los requerimientos no se pueden cerrar del todo sin validarlos con el negocio.
+- Los datos sintéticos evitaron problemas de confidencialidad y permitieron enfocarse en el diseño, aunque restan realismo.
+
+## 11. Limitaciones
+
+- Datos sintéticos y solo seis meses: los patrones no representan a una empresa real ni permiten ver tendencias de largo plazo.
+- Los ingresos por servicio dependen de la regla usada para repartir el monto de facturas con varios servicios.
+- La clasificación de nivel de consumo depende de las reglas del proyecto y puede requerir ajustes con nuevos datos.
+- La actualización es manual: hay que re-ejecutar KNIME, cargar en MySQL y refrescar Power BI.
+
+## 12. Mejoras futuras
+
+- Usar datos reales y ampliar el periodo a uno o varios años (estacionalidad, tendencias).
+- Automatizar el ETL y la actualización del dashboard, con validaciones y registro de errores.
+- Registrar el historial de cambios de atributos del cliente (segmento, región) y el consumo mensual.
+- Agregar métricas al dashboard (ingreso medio por cliente, evolución mensual del consumo, % de incidencias resueltas).
+- Con más historia, construir modelos predictivos de riesgo de cancelación.
+
 > **Nota:** los datos son 100 % sintéticos; no contienen información real de clientes.
